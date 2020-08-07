@@ -1,0 +1,1 @@
+# shopify-select-variants-by-clicking-images
