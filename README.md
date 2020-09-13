@@ -52,3 +52,13 @@ Add the following js:
         });
      }
     });
+    
+    {% for image in product.images %}
+                  {% unless image contains featured_image %}
+                    <div class="grid__item one-fifth">
+                      <a class="product-single__thumbnail">
+                        <img class="product-single__thumb" src="{{ image.src | img_url: '150x150', crop: 'center' }}" alt="{{ image.alt | escape }}" data-variant-id="{% for variant in image.variants %}{% if image == variant.image %}{{ variant.id }}{% endif %}{% endfor %}">
+                      </a>
+                    </div>
+                  {% endunless %}
+    {% endfor %}
